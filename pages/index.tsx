@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import Layout from '../components/Layout'
+import Link from "next/link";
+import Layout from '../components/Layout';
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -9,6 +9,11 @@ const IndexPage = () => (
         <a>About</a>
       </Link>
     </p>
+    <p>
+      <Link href="/blog">
+        <a>Blog</a>
+      </Link>
+    </p>    
   </Layout>
 )
 
