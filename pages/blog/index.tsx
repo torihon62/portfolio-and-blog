@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     card: {
       margin: theme.spacing(1),
+      '&:hover': {
+        background: 'rgba(0, 0, 0, 0.04)',
+      },
     },
     title: {
       fontWeight: 'bold',
