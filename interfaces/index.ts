@@ -32,3 +32,26 @@ export interface Post {
   category: Category[];
   eyeCatch?: ImageResponse;
 }
+
+export interface Skill {
+  id: string;
+  name: string;
+  experience: string;
+  rating: number;
+}
+
+export interface Work {
+  id: string;
+  title: string;
+  url: string;
+  source: string;
+  description: string;
+  technologies: Skill[];
+  image: ImageResponse;
+}
+
+export interface SkillSet {
+  id: string;
+  name: string;
+  contents: Skill[];
+}

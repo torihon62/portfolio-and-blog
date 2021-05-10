@@ -40,6 +40,10 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MenuList = [
   {
+    name: 'About',
+    href: '/about',
+  },
+  {
     name: 'Works',
     href: '/works',
   },
