@@ -70,6 +70,8 @@ const WorksPage = (props: Props) => {
                   {work.source}
                 </a>
               </Typography>
+              <h3>製作期間</h3>
+              <Typography>{work.period}</Typography>
               <h3>概要</h3>
               <Typography>{work.description}</Typography>
               {work.technologies.map((technology, index) => (

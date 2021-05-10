@@ -46,6 +46,7 @@ export interface Work {
   url: string;
   source: string;
   description: string;
+  period: string;
   technologies: Skill[];
   image: ImageResponse;
 }
