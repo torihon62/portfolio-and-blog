@@ -19,8 +19,14 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(5),
       marginBottom: theme.spacing(5),
     },
+    link: {
+      textDecoration: 'none',
+    },
     card: {
       margin: theme.spacing(1),
+    },
+    title: {
+      fontWeight: 'bold',
     },
     media: {
       height: 140,
@@ -53,34 +59,36 @@ const BlogPage = (props: Props) => {
 
           return (
             <Grid key={post.id} item xs={12} sm={6} md={3}>
-              <Card className={classes.card}>
-                <CardMedia
-                  className={classes.media}
-                  image={post.eyeCatch ? post.eyeCatch.url : '/assets/images/noimage.png'}
-                  title={post.title}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h6" component="h2">
-                    <Link href={`/blog/${post.id}`}>
-                      <a>{post.title}</a>
-                    </Link>
-                  </Typography>
-                  <div
-                    className={classes.outline}
-                    dangerouslySetInnerHTML={{
-                      __html: outline,
-                    }}
-                  />
-                  {post.category.map((category, index) => (
-                    <Chip
-                      key={`${index}_${category.id}`}
-                      className={classes.chip}
-                      label={category.category}
-                      variant="outlined"
+              <Link href={`/blog/${post.id}`}>
+                <a className={classes.link}>
+                  <Card className={classes.card}>
+                    <CardMedia
+                      className={classes.media}
+                      image={post.eyeCatch ? post.eyeCatch.url : '/assets/images/noimage.png'}
+                      title={post.title}
                     />
-                  ))}
-                </CardContent>
-              </Card>
+                    <CardContent>
+                      <Typography gutterBottom variant="h6" component="h2" className={classes.title}>
+                        {post.title}
+                      </Typography>
+                      <div
+                        className={classes.outline}
+                        dangerouslySetInnerHTML={{
+                          __html: outline,
+                        }}
+                      />
+                      {post.category.map((category, index) => (
+                        <Chip
+                          key={`${index}_${category.id}`}
+                          className={classes.chip}
+                          label={category.category}
+                          variant="outlined"
+                        />
+                      ))}
+                    </CardContent>
+                  </Card>
+                </a>
+              </Link>
             </Grid>
           );
         })}

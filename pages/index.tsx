@@ -45,9 +45,7 @@ const IndexPage = () => {
         <Grid item xs={12} sm={6} md={5} className={classes.profile}>
           <Image src={'/assets/images/logo.png'} width={200} height={200} className={classes.avater} />
           <Typography className={classes.name}>とりほん's Portfolio</Typography>
-          <Typography>
-            説明文を書く。ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-          </Typography>
+          <Typography>子育てと料理が好きなフロントエンドエンジニア。</Typography>
         </Grid>
         <Grid item xs />
       </Grid>
