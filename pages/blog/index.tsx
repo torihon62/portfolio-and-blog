@@ -1,6 +1,5 @@
 import {
   Card,
-  CardActions,
   CardMedia,
   CardContent,
   Chip,
@@ -16,6 +15,10 @@ import { Post } from '../../interfaces';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
+    root: {
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(5),
+    },
     card: {
       margin: theme.spacing(1),
     },
@@ -42,7 +45,7 @@ const BlogPage = (props: Props) => {
 
   return (
     <Layout title="Blog">
-      <Grid container>
+      <Grid container className={classes.root}>
         {props.posts.map((post) => {
           const maxLength = 50;
           const body = post.body.replace(/<.*?>/g, ' ');
@@ -77,7 +80,6 @@ const BlogPage = (props: Props) => {
                     />
                   ))}
                 </CardContent>
-                <CardActions></CardActions>
               </Card>
             </Grid>
           );

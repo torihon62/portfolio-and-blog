@@ -4,9 +4,10 @@ import React from 'react';
 const useStyles = makeStyles(() =>
   createStyles({
     header: {
-      textAlign: 'center',
+      display: 'flex',
+      justifyContent: 'center',
       maxWidth: '600px',
-      margin: '0 auto',
+      margin: '30px auto 0 auto',
     },
   }),
 );

@@ -1,9 +1,8 @@
 import Image from 'next/image';
 import Layout from '../../components/Layout';
 import { Post } from '../../interfaces';
-import { Grid, makeStyles, Theme, createStyles, Hidden, Typography } from '@material-ui/core';
+import { Grid, makeStyles, Theme, createStyles, Hidden } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import UpdateIcon from '@material-ui/icons/Update';
 import { DateTime } from '../../components/DateTime';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -98,11 +97,7 @@ export default function BlogId(props: Props) {
           <Grid item xs />
           <Grid className={classes.timestamp} item xs={12} sm={3}>
             <AccessTimeIcon fontSize={'small'} />
-            <DateTime timestamp={new Date(post.publishedAt).getTime()} format={'YYYY-MM-DD HH:mm:ss'} />
-          </Grid>
-          <Grid className={classes.timestamp} item xs={12} sm={3}>
-            <UpdateIcon fontSize={'small'} />
-            <DateTime timestamp={new Date(post.publishedAt).getTime()} format={'YYYY-MM-DD HH:mm:ss'} />
+            <DateTime timestamp={new Date(post.publishedAt).getTime()} format={'YYYY-MM-DD'} />
           </Grid>
           <Grid item xs />
         </Grid>
@@ -135,39 +130,6 @@ export default function BlogId(props: Props) {
           <Hidden xsDown>
             <Grid item xs />
           </Hidden>{' '}
-        </Grid>
-        <Grid container>
-          <Hidden smDown>
-            <Grid item xs />
-          </Hidden>
-          <Grid container item xs={12} md={7} className={classes.author}>
-            <Grid item xs={3} className={classes.authorIcon}>
-              <Image src={'/assets/images/logo.png'} width={200} height={200} />
-            </Grid>
-            <Grid item xs={9} container direction="column" className={classes.authorDescriptionBox}>
-              <Grid item className={classes.authorDescription}>
-                <Typography component={'p'}>
-                  <b>とりほん</b>
-                </Typography>
-                <Typography>料理子育て大好きなWebプログラマー</Typography>
-              </Grid>
-              <Grid container item xs>
-                <Grid item xs={2} className={classes.authorSNS}>
-                  <Image src={'/assets/images/GitHub.png'} width={32} height={32} />
-                </Grid>
-                <Grid item xs={2} className={classes.authorSNS}>
-                  <Image src={'/assets/images/GitHub.png'} width={32} height={32} />
-                </Grid>
-                <Grid item xs={2} className={classes.authorSNS}>
-                  <Image src={'/assets/images/GitHub.png'} width={32} height={32} />
-                </Grid>
-                <Grid item xs />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Hidden xsDown>
-            <Grid item xs />
-          </Hidden>
         </Grid>
       </main>
     </Layout>

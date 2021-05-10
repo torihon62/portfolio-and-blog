@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { NavBar } from './Navbar';
 import { Header } from './Header';
 import { createStyles, makeStyles, Theme, Toolbar } from '@material-ui/core';
+import { Footer } from './Footer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,10 +39,7 @@ const Layout = ({ children, title = 'default title', header = title }: Props) =>
         <Header text={header} />
         {children}
       </div>
-      <footer className={classes.footer}>
-        <hr />
-        <span>I'm here to stay (Footer)</span>
-      </footer>
+      <Footer />
     </>
   );
 };
