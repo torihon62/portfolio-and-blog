@@ -127,9 +127,9 @@ export default function BlogId(props: Props) {
               }}
             />
           </Grid>
-          <Hidden xsDown>
+          <Hidden smDown>
             <Grid item xs />
-          </Hidden>{' '}
+          </Hidden>
         </Grid>
       </main>
     </Layout>

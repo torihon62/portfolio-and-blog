@@ -8,8 +8,8 @@ import { Footer } from './Footer';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     main: {
-      marginLeft: theme.spacing(5),
-      marginRight: theme.spacing(5),
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
     },
     footer: {
       marginLeft: theme.spacing(2),
