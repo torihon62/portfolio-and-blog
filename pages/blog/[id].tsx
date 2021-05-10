@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Layout from '../../components/Layout';
 import { Post } from '../../interfaces';
-import { Grid, makeStyles, Theme, createStyles, Hidden, useTheme } from '@material-ui/core';
+import { Grid, makeStyles, Theme, createStyles, Hidden } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { DateTime } from '../../components/DateTime';
 
@@ -92,7 +92,6 @@ interface Props {
 export default function BlogId(props: Props) {
   const { post } = props;
   const classes = useStyles();
-  const theme = useTheme();
 
   return (
     <Layout title={post.title}>
