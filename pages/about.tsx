@@ -10,7 +10,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     profile: {
       display: 'flex',
-      fontSize: '18px',
       flexDirection: 'column',
       alignItems: 'center',
     },
