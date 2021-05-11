@@ -32,6 +32,7 @@ const Layout = ({ children, title = 'default title', header = title }: Props) =>
       <Head>
         <title>{title} | Webird</title>
         {/* TODO: OGPの設定 */}
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
       <NavBar />
       <Toolbar variant="dense" />
