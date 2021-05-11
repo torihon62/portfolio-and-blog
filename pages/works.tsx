@@ -50,43 +50,47 @@ const WorksPage = (props: Props) => {
   return (
     <Layout title="Works">
       <Grid container className={classes.root}>
-        {works.map((work, index) => (
-          <React.Fragment key={work.id}>
-            <Grid item xs={12} md={4} className={classes.image}>
-              <Image src={work.image.url} width={300} height={200} />
-            </Grid>
-            <Grid item xs />
-            <Grid item xs={12} md={7} className={classes.description}>
-              <h2>{work.title}</h2>
-              <h3>URL</h3>
-              <Typography>
-                <a href={work.url} target={'_blank'}>
-                  {work.url}
-                </a>
-              </Typography>
-              <h3>ソースコード</h3>
-              <Typography>
-                <a href={work.source} target={'_blank'}>
-                  {work.source}
-                </a>
-              </Typography>
-              <h3>製作期間</h3>
-              <Typography>{work.period}</Typography>
-              <h3>概要</h3>
-              <Typography>{work.description}</Typography>
-              {work.technologies.map((technology, index) => (
-                <Link href={'/skills'} key={`${index}_${technology.id}`}>
-                  <a className={classes.link}>
-                    <Chip className={classes.chip} label={technology.name} variant="outlined" />
+        <Grid item xs />
+        <Grid container xs={12} sm={10} item>
+          {works.map((work, index) => (
+            <React.Fragment key={work.id}>
+              <Grid item xs={12} md={4} className={classes.image}>
+                <Image src={work.image.url} width={work.image.width} height={work.image.height} />
+              </Grid>
+              <Grid item xs />
+              <Grid item xs={12} md={7} className={classes.description}>
+                <h2>{work.title}</h2>
+                <h3>URL</h3>
+                <Typography>
+                  <a href={work.url} target={'_blank'}>
+                    {work.url}
                   </a>
-                </Link>
-              ))}
-            </Grid>
-            <Grid item xs={12}>
-              {index + 1 !== works.length && <Divider className={classes.divider} />}
-            </Grid>
-          </React.Fragment>
-        ))}
+                </Typography>
+                <h3>ソースコード</h3>
+                <Typography>
+                  <a href={work.source} target={'_blank'}>
+                    {work.source}
+                  </a>
+                </Typography>
+                <h3>製作期間</h3>
+                <Typography>{work.period}</Typography>
+                <h3>概要</h3>
+                <Typography style={{ whiteSpace: 'pre-wrap' }}>{work.description}</Typography>
+                {work.technologies.map((technology, index) => (
+                  <Link href={'/skills'} key={`${index}_${technology.id}`}>
+                    <a className={classes.link}>
+                      <Chip className={classes.chip} label={technology.name} variant="outlined" />
+                    </a>
+                  </Link>
+                ))}
+              </Grid>
+              <Grid item xs={12}>
+                {index + 1 !== works.length && <Divider className={classes.divider} />}
+              </Grid>
+            </React.Fragment>
+          ))}
+        </Grid>
+        <Grid item xs />
       </Grid>
     </Layout>
   );
