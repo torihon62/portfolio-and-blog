@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     media: {
       height: 140,
-      backgroundSize: 'contain',
+      backgroundSize: 'cover',
       backgroundColor: '#ebebeb',
     },
     outline: {
