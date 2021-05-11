@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Layout from '../../components/Layout';
 import { Post } from '../../interfaces';
 import { Grid, makeStyles, Theme, createStyles, Hidden } from '@material-ui/core';
@@ -18,9 +17,6 @@ const useStyles = makeStyles((theme: Theme) =>
       '& svg': {
         marginRight: theme.spacing(1),
       },
-    },
-    eyeCatch: {
-      textAlign: 'center',
     },
     body: {
       fontSize: '18px',
@@ -105,19 +101,6 @@ export default function BlogId(props: Props) {
           <Grid item xs />
         </Grid>
       </Grid>
-      {post.eyeCatch && (
-        <Grid container className={classes.eyeCatch}>
-          <Hidden smDown>
-            <Grid item xs />
-          </Hidden>
-          <Grid item xs={12} md={7}>
-            <Image src={post.eyeCatch.url} width={post.eyeCatch.width} height={post.eyeCatch.height} />
-          </Grid>
-          <Hidden smDown>
-            <Grid item xs />
-          </Hidden>
-        </Grid>
-      )}
       <main>
         <Grid container>
           <Hidden smDown>
