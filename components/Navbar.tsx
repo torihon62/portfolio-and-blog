@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import {
   AppBar,
   createStyles,
+  Divider,
   Drawer,
   Hidden,
   IconButton,
@@ -16,6 +17,8 @@ import {
   Typography,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,6 +34,18 @@ const useStyles = makeStyles((theme: Theme) =>
     link: {
       textDecoration: 'none',
       color: 'white',
+    },
+    snsLinks: {
+      marginTop: '15px',
+      display: 'flex',
+      justifyContent: 'space-evenly',
+    },
+    snsLink: {
+      textDecoration: 'none',
+      color: 'inherit',
+      '& svg': {
+        fontSize: '32px',
+      },
     },
     drawer: {
       minWidth: '200px',
@@ -87,6 +102,16 @@ export const NavBar: React.FC = () => {
                 </Link>
               </div>
             ))}
+            <div className={classes.nav}>
+              <a href={'https://twitter.com/torihon62'} target={'_blank'} className={classes.link}>
+                <TwitterIcon />
+              </a>
+            </div>
+            <div className={classes.nav}>
+              <a href={'https://github.com/torihon62'} target={'_blank'} className={classes.link}>
+                <GitHubIcon />
+              </a>
+            </div>
           </Hidden>
           <Hidden smUp>
             <IconButton onClick={() => setDrawerOpen(true)} edge="start" color="inherit" aria-label="menu">
@@ -100,6 +125,19 @@ export const NavBar: React.FC = () => {
                   </ListItem>
                 ))}
               </List>
+              <Divider />
+              <div className={classes.snsLinks}>
+                <div>
+                  <a href={'https://twitter.com/torihon62'} target={'_blank'} className={classes.snsLink}>
+                    <TwitterIcon />
+                  </a>
+                </div>
+                <div>
+                  <a href={'https://github.com/torihon62'} target={'_blank'} className={classes.snsLink}>
+                    <GitHubIcon />
+                  </a>
+                </div>
+              </div>
             </Drawer>
           </Hidden>
         </Toolbar>
