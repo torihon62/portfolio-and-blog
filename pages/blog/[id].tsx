@@ -22,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '18px',
       marginBottom: '2em',
       lineHeight: 1.7,
+      overflowWrap: 'break-word',
       [theme.breakpoints.down('sm')]: {
         fontSize: '16px',
       },
