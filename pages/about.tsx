@@ -35,7 +35,7 @@ const AboutPage = () => {
   const classes = useStyles();
 
   return (
-    <Layout title="About">
+    <Layout title="About" description={'Aboutページです'}>
       <div className={classes.root}>
         <Grid container>
           <Grid item xs />

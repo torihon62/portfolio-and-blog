@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const ContactPage = () => {
   const classes = useStyles();
   return (
-    <Layout title="Contact">
+    <Layout title="Contact" description={'お問い合わせぺーじです'}>
       <div className={classes.root}>
         <Typography>TwitterのGMからお願いします</Typography>
         <a href={'https://twitter.com/torihon62'} target={'_blank'}>

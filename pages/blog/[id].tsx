@@ -89,9 +89,12 @@ interface Props {
 export default function BlogId(props: Props) {
   const { post } = props;
   const classes = useStyles();
+  const maxLength = 200;
+  const body = post.body.replace(/<.*?>/g, '');
+  const outline = body.length > maxLength ? `${body.substr(0, maxLength)}` : body;
 
   return (
-    <Layout title={post.title}>
+    <Layout title={post.title} eyeCatch={post.eyeCatch?.url} description={outline}>
       <Grid container className={classes.timestamps}>
         <Grid item container xs={12}>
           <Grid item xs />

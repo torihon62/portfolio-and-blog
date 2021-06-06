@@ -48,7 +48,7 @@ const WorksPage = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <Layout title="Works">
+    <Layout title="Works" description={'今までの製作物です'}>
       <Grid container className={classes.root}>
         <Grid item xs />
         <Grid container xs={12} sm={10} item>

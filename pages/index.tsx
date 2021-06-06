@@ -40,7 +40,7 @@ const IndexPage = () => {
   const classes = useStyles();
 
   return (
-    <Layout title="Home" header="Webird">
+    <Layout title="Home" header="Webird" description={`Webird | 子育てと料理が好きなフロントエンドエンジニア、とりほんのポートフォリオサイトです`}>
       <Grid container>
         <Grid item xs />
         <Grid item xs={12} sm={6} md={5} className={classes.profile}>

@@ -53,7 +53,7 @@ const BlogPage = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <Layout title="Blog">
+    <Layout title="Blog" description={'ブログの一覧です'}>
       <Grid container className={classes.root}>
         {props.posts.map((post) => {
           const maxLength = 50;

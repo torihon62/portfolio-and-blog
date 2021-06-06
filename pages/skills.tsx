@@ -43,7 +43,7 @@ const SkillsPage = (props: Props) => {
   const classes = useStyles();
 
   return (
-    <Layout title="Skills">
+    <Layout title="Skills" description={'私のスキルセットです'}>
       <Grid container className={classes.root}>
         {skills.map((skill) => (
           <React.Fragment key={skill.id}>
