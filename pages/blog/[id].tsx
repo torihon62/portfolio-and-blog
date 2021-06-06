@@ -56,6 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
         border: '1px solid #e4e4e4',
         background: '#272d33',
         borderRadius: '2px',
+        overflow: 'scroll',
       },
     },
     author: {

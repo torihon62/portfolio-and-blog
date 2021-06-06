@@ -12,10 +12,6 @@ const useStyles = makeStyles((theme: Theme) =>
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),
     },
-    footer: {
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
-    },
   }),
 );
 
