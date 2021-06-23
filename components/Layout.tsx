@@ -40,7 +40,7 @@ const Layout = ({ children, title = 'default title', header = title, eyeCatch, d
         <meta property="og:site_name" content="Webird" />
         <meta property="og:image" content={eyeCatch || 'https://images.microcms-assets.io/assets/d5eb4af8cbbf4b8aa1e80f6ea64e8f1d/cd97b6ee591a4834878d1ed3677c6533/logo.png'} />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@torihon62" />
       </Head>
       <NavBar />
