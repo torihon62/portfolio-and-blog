@@ -10,10 +10,10 @@ import {
   createStyles,
 } from '@material-ui/core';
 import Link from 'next/link';
-import Layout from '../../components/Layout';
-import { Pagination } from '../../components/Pagination';
-import { Post } from '../../interfaces';
-import { BLOG_PER_PAGE } from '../../interfaces/consts';
+import Layout from '../../../components/Layout';
+import { Pagination } from '../../../components/Pagination';
+import { Post } from '../../../interfaces';
+import { BLOG_PER_PAGE } from '../../../interfaces/consts';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,19 +46,20 @@ const useStyles = makeStyles((theme: Theme) =>
       marginBottom: theme.spacing(1),
     },
     pagination: {
-      display: 'flex',
-      justifyContent: 'center',
-      marginTop: '10px',
-      marginBottom: '30px',
-    },
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '10px',
+        marginBottom: '30px',
+      },
   }),
 );
 interface Props {
+  id: number;
   posts: Post[];
   totalCount: number;
 }
 
-const BlogPage = (props: Props) => {
+const BlogPageId = (props: Props) => {
   const classes = useStyles();
 
   return (
@@ -106,27 +107,51 @@ const BlogPage = (props: Props) => {
         })}
       </Grid>
       <Grid container>
-          <Grid item xs className={classes.pagination}>
-            <Pagination totalCount={props.totalCount} page={1} />
-          </Grid>
+        <Grid item xs className={classes.pagination}>
+          <Pagination totalCount={props.totalCount} page={props.id} />
+        </Grid>
       </Grid>
     </Layout>
   );
 };
 
-export default BlogPage;
+export default BlogPageId;
 
-// データをテンプレートに受け渡す部分の処理を記述します
-export const getStaticProps = async () => {
+// 動的なページを作成
+export const getStaticPaths = async () => {
   const key = {
     headers: { 'X-API-KEY': process.env.API_KEY },
   };
-  const data = await fetch(`https://torihon.microcms.io/api/v1/blog?offset=0&limit=${BLOG_PER_PAGE}`, key)
+
+  const res = await fetch('https://torihon.microcms.io/api/v1/blog', key);
+
+  const repos = await res.json();
+
+  const range = (start: number, end: number) => [...Array(end - start + 1)].map((_, i) => start + i);
+
+  const paths = range(1, Math.ceil(repos.totalCount / BLOG_PER_PAGE)).map((repo) => `/blog/page/${repo}`);
+
+  return { paths, fallback: false };
+};
+
+// データを取得
+export const getStaticProps = async (context: { params: { id: string } }) => {
+  const id = parseInt(context.params.id);
+
+  const key = {
+    headers: { 'X-API-KEY': process.env.API_KEY },
+  };
+
+  const data = await fetch(
+    `https://torihon.microcms.io/api/v1/blog?offset=${(id - 1) * BLOG_PER_PAGE}&limit=${BLOG_PER_PAGE}`,
+    key,
+  )
     .then((res) => res.json())
     .catch(() => null);
 
   return {
     props: {
+      id,
       posts: data.contents,
       totalCount: data.totalCount,
     },
