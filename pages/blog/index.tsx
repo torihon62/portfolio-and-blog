@@ -124,7 +124,7 @@ const BlogPage = (props: Props) => {
     setSearchTotalCount(filteredPosts.length);
   }, [router.query]);
   
-  const dividePostsPerPage = (posts: Post[]) => {
+  const dividePostsPerPage = (posts: Post[]): Post[][] => {
     const result = [];
     let record = [];
     for (let i = 0, l = posts.length; i < l; i++) {
@@ -137,7 +137,7 @@ const BlogPage = (props: Props) => {
             result.push(record);
         }
     }
-    return result;
+    return result.length ? result : [[]];
   };
 
   const displayPosts = dividePostsPerPage(searchPosts ?? props.posts);
