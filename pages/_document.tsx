@@ -16,7 +16,11 @@ export default class MyDocument extends Document {
           <meta name="theme-color" content="#ffffff" />
           <meta name="google-site-verification" content="ws1tnexY1-JgoqmZa6h2TCzc2fdkwS8hJgu9hzwu3SQ" />
           <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356988222671040" crossOrigin="anonymous"></script>
+          <script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5356988222671040"
+            crossOrigin="anonymous"
+          ></script>
         </Head>
         <body>
           <Main />

@@ -160,15 +160,15 @@ export const getStaticProps = async (context: { params: Param }) => {
   const $ = cheerio.load(data.body);
 
   $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text())
-    $(elm).html(result.value)
-    $(elm).addClass('hljs')
+    const result = hljs.highlightAuto($(elm).text());
+    $(elm).html(result.value);
+    $(elm).addClass('hljs');
   });
 
   return {
     props: {
       post: data,
-      highlightedBody:$.html(),
+      highlightedBody: $.html(),
     },
-  }
+  };
 };
