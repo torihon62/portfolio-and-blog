@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export && next-sitemap --config sitemap.config.js",
+    "export": "next export",
     "start": "next start",
     "type-check": "tsc"
   },
@@ -24,6 +25,7 @@
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-scroll": "^1.8.3",
+    "next-sitemap": "^1.6.164",
     "prettier": "^2.2.1",
     "typescript": "4.3.5"
   },
