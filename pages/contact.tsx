@@ -1,18 +1,24 @@
-import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Avatar, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
-import Image from 'next/image';
 import Layout from '../components/Layout';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      textAlign: 'center',
       marginBottom: theme.spacing(5),
+      display: 'flex',
+      flexFlow: 'column',
+      alignItems: 'center',
+    },
+    link: {
+      display: 'flex',
+      flexFlow: 'column',
+      alignItems: 'center',
     },
     avater: {
-      display: 'flex',
-      justifyContent: 'center',
-      borderRadius: '50%',
+      margin: '30px auto',
+      width: '200px',
+      height: '200px',
     },
   }),
 );
@@ -23,10 +29,9 @@ const ContactPage = () => {
     <Layout title="Contact" description={'お問い合わせぺーじです'}>
       <div className={classes.root}>
         <Typography>TwitterのGMからお願いします</Typography>
-        <a href={'https://twitter.com/torihon62'} target={'_blank'}>
-          <Image src={'/assets/images/logo.png'} width={200} height={200} className={classes.avater} />
-          <br />
-          twitter
+        <a href={'https://twitter.com/torihon62'} target={'_blank'} className={classes.link}>
+          <Avatar src={'/assets/images/logo.png'} className={classes.avater} />
+          <div>twitter</div>
         </a>
       </div>
     </Layout>

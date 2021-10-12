@@ -1,5 +1,4 @@
-import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import Image from 'next/image';
+import { Avatar, createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
 import Layout from '../components/Layout';
 
@@ -17,6 +16,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       borderRadius: '50%',
+      width: '200px',
+      height: '200px',
     },
     name: {
       marginTop: theme.spacing(2),
@@ -40,7 +41,7 @@ const AboutPage = () => {
         <Grid container>
           <Grid item xs />
           <Grid item xs={12} sm={6} md={5} className={classes.profile}>
-            <Image src={'/assets/images/logo.png'} width={200} height={200} className={classes.avater} />
+            <Avatar src={'/assets/images/logo.png'} className={classes.avater} />
           </Grid>
           <Grid item xs />
         </Grid>

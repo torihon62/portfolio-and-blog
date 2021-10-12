@@ -1,4 +1,4 @@
-import { createStyles, Grid, Hidden, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Avatar, createStyles, Grid, Hidden, makeStyles, Theme, Typography } from '@material-ui/core';
 import Layout from '../components/Layout';
 import { IndexCard } from '../components/IndexCard';
 import PersonIcon from '@material-ui/icons/Person';
@@ -6,7 +6,6 @@ import BuildIcon from '@material-ui/icons/Build';
 import StarIcon from '@material-ui/icons/Star';
 import BookIcon from '@material-ui/icons/Book';
 import ChatIcon from '@material-ui/icons/Chat';
-import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,6 +19,8 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       borderRadius: '50%',
+      width: '200px',
+      height: '200px',
     },
     name: {
       marginTop: theme.spacing(2),
@@ -48,7 +49,7 @@ const IndexPage = () => {
       <Grid container>
         <Grid item xs />
         <Grid item xs={12} sm={6} md={5} className={classes.profile}>
-          <Image src={'/assets/images/logo.png'} width={200} height={200} className={classes.avater} />
+          <Avatar src={'/assets/images/logo.png'} className={classes.avater} />
           <Typography className={classes.name}>とりほん's Portfolio</Typography>
           <Typography>子育てと料理が好きなフロントエンドエンジニア。</Typography>
         </Grid>

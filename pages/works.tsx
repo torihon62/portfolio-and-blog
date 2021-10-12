@@ -1,5 +1,4 @@
 import { Chip, createStyles, Divider, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import Layout from '../components/Layout';
@@ -55,7 +54,7 @@ const WorksPage = (props: Props) => {
           {works.map((work, index) => (
             <React.Fragment key={work.id}>
               <Grid item xs={12} md={4} className={classes.image}>
-                <Image src={work.image.url} width={work.image.width} height={work.image.height} />
+                <img src={work.image.url} width="100%" />
               </Grid>
               <Grid item xs />
               <Grid item xs={12} md={7} className={classes.description}>
