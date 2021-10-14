@@ -3,9 +3,6 @@ import { Post } from '../../interfaces';
 import { Grid, makeStyles, Theme, createStyles, Hidden } from '@material-ui/core';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import { DateTime } from '../../components/DateTime';
-import cheerio from 'cheerio';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/base16/railscasts.css';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -118,8 +115,7 @@ export default function BlogId(props: Props) {
           <Grid item xs={12} md={7} className={classes.body}>
             <div
               dangerouslySetInnerHTML={{
-                // __html: `${props.post.body}`,
-                __html: `${props.highlightedBody}`,
+                __html: `${props.post.body}`,
               }}
             />
           </Grid>
@@ -157,18 +153,10 @@ export const getStaticProps = async (context: { params: Param }) => {
   const data = await fetch('https://torihon.microcms.io/api/v1/blog/' + id, key)
     .then((res) => res.json())
     .catch(() => null);
-  const $ = cheerio.load(data.body);
-
-  $('pre code').each((_, elm) => {
-    const result = hljs.highlightAuto($(elm).text());
-    $(elm).html(result.value);
-    $(elm).addClass('hljs');
-  });
 
   return {
     props: {
       post: data,
-      highlightedBody: $.html(),
     },
   };
 };
