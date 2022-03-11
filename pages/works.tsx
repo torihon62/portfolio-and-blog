@@ -67,9 +67,13 @@ const WorksPage = (props: Props) => {
                 </Typography>
                 <h3>ソースコード</h3>
                 <Typography>
-                  <a href={work.source} target={'_blank'}>
-                    {work.source}
-                  </a>
+                  {work.source.match(/^http/) ? (
+                    <a href={work.source} target={'_blank'}>
+                      {work.source}
+                    </a>
+                  ) : (
+                    <div>{work.source}</div>
+                  )}
                 </Typography>
                 <h3>製作期間</h3>
                 <Typography>{work.period}</Typography>
